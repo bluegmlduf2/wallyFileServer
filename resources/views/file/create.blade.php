@@ -4,6 +4,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             신규파일등록
         </h2>
+        <x-input-error class="mb-4" :messages="$errors->all()"/>
         <x-message :message="session('message')" />
     </x-slot>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,7 +16,8 @@
                 <div class="md:flex items-center mt-8">
                     <div class="w-full flex flex-col">
                     <label for="filename" class="font-semibold leading-none mt-4">파일명</label>
-                    <input type="text" name="filename" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="filename" placeholder="파일명을 입력해주세요">
+                    <input type="text" name="filename" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" 
+                    id="filename" placeholder="파일명을 입력해주세요" value="{{old('filename')}}">
                     </div>
                 </div>
                 <div class="w-full flex flex-col">

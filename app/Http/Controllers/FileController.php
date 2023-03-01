@@ -36,6 +36,10 @@ class FileController extends Controller
      */
     public function store(StoreFileRequest $request)
     {
+        $inputs=$request->validate([
+            'filename'=>'required|max:255',
+        ]);
+
         $file = new File();
         $file->user_id = auth()->user()->id;
         $file->file_name = $request->filename;
@@ -44,6 +48,7 @@ class FileController extends Controller
         $file->file_type = 'testType1';
         $file->file_size = 1;
         $file->save();
+        
         return redirect()->route('file.create')->with('message','파일등록하였습니다');
     }
 

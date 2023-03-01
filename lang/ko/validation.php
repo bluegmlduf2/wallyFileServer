@@ -130,4 +130,7 @@ return [
             'rule-name' => 'custom-message',
         ],
     ],
+    'attributes' => [
+        'filename'=>'파일명',
+    ]
 ];
