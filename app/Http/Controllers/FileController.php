@@ -36,7 +36,15 @@ class FileController extends Controller
      */
     public function store(StoreFileRequest $request)
     {
-        //
+        $file = new File();
+        $file->user_id = auth()->user()->id;
+        $file->file_name = $request->filename;
+        // TODO 파일저장부분 파라미터 수정예정
+        $file->file_path = 'testPath1';
+        $file->file_type = 'testType1';
+        $file->file_size = 1;
+        $file->save();
+        return redirect()->route('file.create')->with('message','파일등록하였습니다');
     }
 
     /**

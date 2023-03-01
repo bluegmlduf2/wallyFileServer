@@ -13,7 +13,8 @@ class StoreFileRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        // TODO 임시로 권한 확인을 하지 않음
+        return true;
     }
 
     /**

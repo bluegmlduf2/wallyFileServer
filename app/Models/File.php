@@ -10,6 +10,19 @@ class File extends Model
     use HasFactory;
     
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'user_id',
+        'file_name',
+        'file_path',
+        'file_type',
+        'file_size',
+    ];
+
+    /**
      * Get the user that owns the File
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
