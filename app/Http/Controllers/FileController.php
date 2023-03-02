@@ -38,15 +38,27 @@ class FileController extends Controller
     {
         $inputs=$request->validate([
             'filename'=>'required|max:255',
+            'file'=>'required|max:1024',
         ]);
 
         $file = new File();
         $file->user_id = auth()->user()->id;
-        $file->file_name = $request->filename;
-        // TODO 파일저장부분 파라미터 수정예정
+        // TODO 파일패스부분 수정 예정
         $file->file_path = 'testPath1';
-        $file->file_type = 'testType1';
-        $file->file_size = 1;
+        
+        // 파일저장 및 파일정보저장
+        if (request('file')) {
+            $paramFile=request()->file('file');
+            
+            // DB 전송값 설정
+            $file->file_name = date('Ymd_His').'_'.$paramFile->getClientOriginalName();
+            $file->file_size = $paramFile->getSize();
+            $file->file_type = $paramFile->extension();
+            
+            // 파일 저장
+            $paramFile->move('storage/files',$file->file_name);
+        }
+        
         $file->save();
         
         return redirect()->route('file.create')->with('message','파일등록하였습니다');

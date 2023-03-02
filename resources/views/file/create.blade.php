@@ -21,9 +21,9 @@
                     </div>
                 </div>
                 <div class="w-full flex flex-col">
-                    <label for="image" class="font-semibold leading-none mt-4">선택된 파일</label>
+                    <label for="file" class="font-semibold leading-none mt-4">선택된 파일</label>
                     <div>
-                    <input id="image" type="file" name="image">
+                    <input id="file" type="file" name="file">
                     </div>
                 </div>
                 {{-- component의 primary-button.blade.php의 $slot의 슬롯에 들어간다 --}}

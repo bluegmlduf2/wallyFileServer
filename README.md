@@ -12,3 +12,7 @@ npm install
 npm run dev
 php artisan serve
 ```
+## recommend
+```bash
+php artisan storage:link
+```

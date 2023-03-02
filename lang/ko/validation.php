@@ -132,5 +132,6 @@ return [
     ],
     'attributes' => [
         'filename'=>'파일명',
+        'file'=>'파일',
     ]
 ];
