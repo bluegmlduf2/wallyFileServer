@@ -69,10 +69,8 @@
                                 {{ $file->file_size }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $file->user->name }} ・ {{ $file->created_at->diffForHumans() }}
-                            </td>
-                            <td class="px-6 py-4">
-                                <a href="#" class="font-medium text-indigo-600 hover:underline">Edit</a>
+                                <a href="{{ route('file.show', $file) }}"
+                                    class="font-medium text-indigo-600 hover:underline">상세보기</a>
                             </td>
                         </tr>
                     @endforeach
