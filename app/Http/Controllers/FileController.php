@@ -51,10 +51,13 @@ class FileController extends Controller
             
             // DB 저장값 설정
             $file->user_id = auth()->user()->id;
+            $file->file_name = $request->filename;
+            $file->file_url = date('Ymd_His').'_'.$paramFile->getClientOriginalName();
             $file->file_size = $paramFile->getSize();
             $file->file_type = $paramFile->extension();
             
             // 파일 저장
+            $paramFile->move('storage/files',$file->file_url);
 
             // DB 저장
             $file->save();

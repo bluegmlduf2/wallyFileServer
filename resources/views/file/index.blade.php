@@ -7,7 +7,7 @@
         <x-input-error class="mb-4" :messages="$errors->all()" />
         <x-message :message="session('message')" />
     </x-slot>
-    <div class="max-w-7xl mx-auto px-4">
+    <div class="mx-auto px-4">
         <div class="pb-4 mt-8">
              <div class="relative mt-1">
                 <input type="text" id="table-search"
@@ -30,16 +30,13 @@
                             파일명
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            경로
+                            URL
                         </th>
                         <th scope="col" class="px-6 py-3">
                             파일타입
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            사이즈
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            작성정보
+                            작성일자
                         </th>
                         <th scope="col" class="px-6 py-3">
                             
@@ -60,7 +57,7 @@
                                 {{ $file->file_name }}
                             </th>
                             <td class="px-6 py-4">
-                                {{ $file->file_path }}
+                                {{ url("storage/files/".$file->file_url) }}
                             </td>
                             <td class="px-6 py-4">
                                 {{ $file->file_type }}
