@@ -43,25 +43,23 @@ class FileController extends Controller
             'file'=>'required|max:1024',
         ]);
 
-        $file = new File();
-        $file->user_id = auth()->user()->id;
-        // TODO 파일패스부분 수정 예정
-        $file->file_path = 'testPath1';
-        
-        // 파일저장 및 파일정보저장
+        // 화면에서 받아온 파일이 존재하는지 확인
         if (request('file')) {
+            // 초기화
+            $file = new File();
             $paramFile=request()->file('file');
             
-            // DB 전송값 설정
-            $file->file_name = date('Ymd_His').'_'.$paramFile->getClientOriginalName();
+            // DB 저장값 설정
+            $file->user_id = auth()->user()->id;
             $file->file_size = $paramFile->getSize();
             $file->file_type = $paramFile->extension();
             
             // 파일 저장
-            $paramFile->move('storage/files',$file->file_name);
+
+            // DB 저장
+            $file->save();
         }
         
-        $file->save();
         
         return redirect()->route('file.create')->with('message','파일등록하였습니다');
     }

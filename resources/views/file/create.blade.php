@@ -15,13 +15,13 @@
                 @csrf
                 <div class="md:flex items-center mt-8">
                     <div class="w-full flex flex-col">
-                    <label for="filename" class="font-semibold leading-none mt-4">파일명</label>
+                    <label for="filename" class="font-semibold leading-none mt-4 mb-2">파일명</label>
                     <input type="text" name="filename" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" 
                     id="filename" placeholder="파일명을 입력해주세요" value="{{old('filename')}}">
                     </div>
                 </div>
                 <div class="w-full flex flex-col">
-                    <label for="file" class="font-semibold leading-none mt-4">선택된 파일</label>
+                    <label for="file" class="font-semibold leading-none mt-6 mb-2">선택된 파일</label>
                     <div>
                     <input id="file" type="file" name="file">
                     </div>

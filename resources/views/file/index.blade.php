@@ -66,7 +66,7 @@
                                 {{ $file->file_type }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $file->file_size }}
+                                {{ $file->created_at->diffForHumans() }}
                             </td>
                             <td class="px-6 py-4">
                                 <a href="{{ route('file.show', $file) }}"
