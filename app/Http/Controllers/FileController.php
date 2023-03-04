@@ -15,7 +15,9 @@ class FileController extends Controller
      */
     public function index()
     {
-        //
+        $files = File::orderBy('created_at','desc')->get(); //File::all()
+        $user = auth()->user();
+        return view('file.index',compact('files','user'));
     }
 
     /**
