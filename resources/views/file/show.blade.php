@@ -52,7 +52,7 @@
                         <dt class="text-sm font-medium text-gray-500">첨부파일</dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                             <div>
-                                <img src="{{ asset('storage/files/'.$file->file_url) }}" style="max-height: 300px">
+                                <img src="{{ asset('storage/files/' . $file->file_url) }}" style="max-height: 300px">
                             </div>
                             <ul role="list" class="divide-y divide-gray-200 rounded-md border border-gray-200 mt-3">
                                 <li class="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
