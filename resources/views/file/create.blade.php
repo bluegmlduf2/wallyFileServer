@@ -24,7 +24,10 @@
                 <div class="w-full flex flex-col">
                     <label for="file" class="font-semibold leading-none mt-6 mb-2">선택된 파일</label>
                     <div>
-                        <input id="file" type="file" name="file">
+                        <img id="tempImg" src="" style="max-height: 300px">
+                    </div>
+                    <div class="mt-3">
+                        <input id="file" type="file" name="file" onchange="createTempImage()">
                     </div>
                 </div>
                 {{-- component의 primary-button.blade.php의 $slot의 슬롯에 들어간다 --}}
