@@ -30,7 +30,7 @@
             @endif
 
             <!-- Page Content -->
-            <main>
+            <main class="h-screen">
                 {{ $slot }}
             </main>
         </div>
