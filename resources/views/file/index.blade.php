@@ -7,11 +7,11 @@
         <x-input-error class="mb-4" :messages="$errors->all()" />
         <x-message :message="session('message')" />
     </x-slot>
-    <div class="mx-auto px-4">
+    <div class="max-w-7xl mx-auto px-4">
         <div class="pb-4 mt-8">
             <div class="relative mt-1">
                 <input type="text" id="table-search"
-                    class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded w-80 bg-gray-50"
+                    class="block p-2 pl-3 text-sm text-gray-900 border border-gray-300 rounded w-48 bg-gray-50"
                     placeholder="파일명 검색">
             </div>
         </div>
