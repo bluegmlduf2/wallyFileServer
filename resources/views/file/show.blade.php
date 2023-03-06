@@ -5,7 +5,7 @@
             파일상세정보
         </h2>
     </x-slot>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-5">
         <div class="overflow-hidden bg-white shadow sm:rounded-lg">
             <div class="border-t border-gray-200">
                 <dl>
@@ -72,6 +72,13 @@
                                 </li>
                             </ul>
                         </dd>
+                    </div>
+                    <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+                        <a href="{{ route('file.edit', $file) }}" class="font-medium">
+                            <x-primary-button>
+                                편집
+                            </x-primary-button>
+                        </a>
                     </div>
                 </dl>
             </div>
