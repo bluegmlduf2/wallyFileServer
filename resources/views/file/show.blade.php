@@ -67,8 +67,8 @@
                                         <span class="ml-2 w-0 flex-1 truncate">{{ $file->file_name }}</span>
                                     </div>
                                     <div class="ml-4 flex-shrink-0">
-                                        <a href="#"
-                                            class="font-medium text-indigo-600 hover:text-indigo-500">Download</a>
+                                        <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"
+                                            onclick="downloadFile('{{ asset('storage/files/' . $file->file_url) }}','{{ $file->file_name }}')">Download</a>
                                     </div>
                                 </li>
                             </ul>
