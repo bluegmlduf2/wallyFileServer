@@ -4,11 +4,14 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             파일편집
         </h2>
+        <x-input-error class="my-4" :messages="$errors->all()" />
     </x-slot>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
         <div class="mt-10 sm:mt-0 mx-auto">
             <div class="mt-5 md:col-span-2 md:mt-0">
-                <form action="#" method="POST">
+                <form action="{{ route('file.update',$file) }}" method="post"  enctype="multipart/form-data">
+                    @csrf
+                    @method('patch')
                     <div class="overflow-hidden shadow rounded-lg">
                         <div class="bg-white px-4 py-5 sm:p-6">
                             <div class="grid gap-6">

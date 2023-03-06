@@ -63,7 +63,6 @@ class FileController extends Controller
             $file->save();
         }
         
-        
         return redirect()->route('file.create')->with('message','파일등록하였습니다');
     }
 
@@ -98,7 +97,32 @@ class FileController extends Controller
      */
     public function update(UpdateFileRequest $request, File $file)
     {
-        //
+        $inputs=$request->validate([
+            'filename'=>'required|max:255',
+            'file'=>'max:1024',
+        ]);
+
+        $file->user_id = auth()->user()->id;
+        $file->file_name = $request->filename;
+
+        // 화면에서 받아온 파일이 존재하는 경우 파일 저장을 실행
+        if (request()->file('file') !== null) {
+            // 초기화
+            $paramFile=request()->file('file');
+            
+            // DB 저장값 설정
+            $file->file_url = date('Ymd_His').'_'.$paramFile->getClientOriginalName();
+            $file->file_size = $paramFile->getSize();
+            $file->file_type = $paramFile->extension();
+            
+            // 파일 저장
+            $paramFile->move('storage/files',$file->file_url);
+        }
+        
+        // DB 저장
+        $file->save();
+
+        return redirect()->route('file.show',$file)->with('message','파일편집하였습니다');
     }
 
     /**

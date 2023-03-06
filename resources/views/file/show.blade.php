@@ -4,6 +4,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             파일상세정보
         </h2>
+        <x-message :message="session('message')" />
     </x-slot>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-5">
         <div class="overflow-hidden bg-white shadow sm:rounded-lg">
