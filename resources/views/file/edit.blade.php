@@ -40,6 +40,13 @@
                             <x-primary-button>
                                 저장
                             </x-primary-button>
+                            <form method="post" action="{{ route('file.destroy',$file) }}">
+                                @csrf
+                                @method('delete')
+                                <x-primary-button onclick="return confirm('삭제하시겠습니까?')" class="mt-4 ml-2 bg-red-700">
+                                    삭제
+                                </x-primary-button>
+                            </form>
                         </div>
                     </div>
                 </form>

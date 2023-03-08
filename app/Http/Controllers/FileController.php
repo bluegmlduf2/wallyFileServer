@@ -133,6 +133,8 @@ class FileController extends Controller
      */
     public function destroy(File $file)
     {
-        //
+        $file->delete();
+        // TODO 파일실제삭제추가
+        return redirect()->route('file.index')->with('message','파일삭제하였습니다');
     }
 }
