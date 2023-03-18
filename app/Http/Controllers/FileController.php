@@ -40,7 +40,7 @@ class FileController extends Controller
     {
         $inputs=$request->validate([
             'filename'=>'required|max:255',
-            'file'=>'required|max:1024',
+            'file'=>'required|max:10240', // 용량 10MB까지
         ]);
 
         // 화면에서 받아온 파일이 존재하는지 확인
@@ -99,7 +99,7 @@ class FileController extends Controller
     {
         $inputs=$request->validate([
             'filename'=>'required|max:255',
-            'file'=>'max:1024',
+            'file'=>'max:10240', // 용량 10MB까지
         ]);
 
         $file->user_id = auth()->user()->id;
