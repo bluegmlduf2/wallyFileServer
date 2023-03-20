@@ -133,8 +133,14 @@ class FileController extends Controller
      */
     public function destroy(File $file)
     {
-        $file->delete();
-        // TODO 파일실제삭제추가
+        // DB의 파일정보삭제
+        $isDeleted = $file->delete();
+        $deleteFilePath = 'storage/files/'.$file->file_url;
+        // 물리적으로 파일삭제
+        if(is_file($deleteFilePath)){
+            // TODO filesystems.php의 루트경로를 취득하는 함수로 변경필요
+            unlink(storage_path('app/public/files/'.$file->file_url));
+        }
         return redirect()->route('file.index')->with('message','파일삭제하였습니다');
     }
 }
