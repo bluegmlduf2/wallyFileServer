@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreFileRequest;
 use App\Http\Requests\UpdateFileRequest;
 use App\Models\File;
+use Illuminate\Support\Facades\Storage;
 
 class FileController extends Controller
 {
@@ -135,11 +136,12 @@ class FileController extends Controller
     {
         // DB의 파일정보삭제
         $isDeleted = $file->delete();
-        $deleteFilePath = 'storage/files/'.$file->file_url;
+        $isExistFile = is_file(storage_path('app/public/files/'.$file->file_url));
         // 물리적으로 파일삭제
-        if(is_file($deleteFilePath)){
-            // TODO filesystems.php의 루트경로를 취득하는 함수로 변경필요
-            unlink(storage_path('app/public/files/'.$file->file_url));
+        if($isExistFile){
+            Storage::delete('public/files/'.$file->file_url);
+            // 아래와 같은 표기를 filesystems.php에 성정된 default disk에 따라 위와같이 생략가능
+            // Storage::disk('public')->delete('files/'.$file->file_url);
         }
         return redirect()->route('file.index')->with('message','파일삭제하였습니다');
     }
