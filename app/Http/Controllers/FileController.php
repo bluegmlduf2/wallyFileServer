@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreFileRequest;
 use App\Http\Requests\UpdateFileRequest;
+use App\Http\Requests\DeleteFileRequest;
 use App\Models\File;
 use Illuminate\Support\Facades\Storage;
 
@@ -132,7 +133,7 @@ class FileController extends Controller
      * @param  \App\Models\File  $file
      * @return \Illuminate\Http\Response
      */
-    public function destroy(File $file)
+    public function destroy(DeleteFileRequest $file)
     {
         // DB의 파일정보삭제
         $isDeleted = $file->delete();
